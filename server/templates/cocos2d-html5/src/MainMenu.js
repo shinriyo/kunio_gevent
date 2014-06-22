@@ -1,7 +1,5 @@
 var MainMenu = cc.LayerColor.extend({
 
-    _won:false,
-
     ctor:function() {
         this._super();
         cc.associateWithNative( this, cc.LayerColor );
@@ -15,12 +13,7 @@ var MainMenu = cc.LayerColor.extend({
         var winSize = director.getWinSize();
         var centerPos = cc.p( winSize.width/2, winSize.height/2 );
 
-        var message;
-        if (this._won) {
-            message = "You Won!";
-        } else {
-            message = "You Lose :[";
-        }
+        var message = "TITLE!";
 
         var label = cc.LabelTTF.create(message, "Arial", 32);
         label.setColor(cc.c3b(0, 0, 0));
@@ -38,18 +31,16 @@ var MainMenu = cc.LayerColor.extend({
     }
 });
 
-MainMenu.create = function (won) {
+MainMenu.create = function () {
     var sg = new MainMenu();
-    sg._won = won;
     if (sg && sg.init(cc.c4b(255, 255, 255, 255))) {
         return sg;
     }
     return null;
 };
 
-MainMenu.scene = function (won) {
+MainMenu.scene = function () {
     var scene = cc.Scene.create();
-    var layer = MainMenu.create(won);
     scene.addChild(layer);
     return scene;
 };

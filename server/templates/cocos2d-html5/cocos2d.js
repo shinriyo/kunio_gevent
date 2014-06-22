@@ -48,7 +48,10 @@
             /*'./src/resource.js',
             './src/MainLayer.js',
             './src/GameOver.js',*/
+            // socket.io
+            'http:///cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js',
             STATIC_PATH + '/src/resource.js',
+            STATIC_PATH + '/src/MainMenu.js',
             STATIC_PATH + '/src/MainLayer.js',
             STATIC_PATH + '/src/GameOver.js',
         ]
