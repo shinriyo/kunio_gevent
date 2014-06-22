@@ -1,3 +1,4 @@
+kunio
 multi player html5
 --
 
@@ -9,6 +10,8 @@ Install from pip
 --
 pip install -r requirements.txt
 
-Tutorial
----
-Http://www.raywenderlich.com/32970/how-to-make-a-cross-platform-game-with-cocos2d-javascript-tutorial-getting-started
+cocos2d-x version
+--
+
+Cocos2d-html5-v2.2.3 
+

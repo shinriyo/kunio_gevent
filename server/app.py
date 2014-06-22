@@ -7,13 +7,20 @@ from threading import Thread
 from flask import Flask, render_template, session, request
 from flask.ext.socketio import SocketIO, emit, join_room, leave_room
 
-app = Flask(__name__)
+import os
+PROJECT_PATH = os.path.dirname(os.path.realpath(__file__))
+#app = Flask(__name__)
+app = Flask(__name__,
+    #template_folder=os.path.join(PROJECT_PATH, 'www/templates'),
+    static_folder=os.path.join(PROJECT_PATH, 'templates/cocos2d-html5')
+)
 app.debug = True
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 thread = None
 #namespace = '/test'
 namespace = ''
+#app.config['STATIC_FOLDER'] = 'templates/cocos2d-html5'
 
 def background_thread():
     """Example of how to send server generated events to clients."""
@@ -32,7 +39,8 @@ def index():
     if thread is None:
         thread = Thread(target=background_thread)
         thread.start()
-    return render_template('index.html')
+    #return render_template('index.html')
+    return render_template('cocos2d-html5/index.html')
 
 
 @socketio.on('my event', namespace=namespace)
